@@ -1,0 +1,10 @@
+io/twg/payroll/repository/IEmployeeRepository.class
+io/twg/payroll/controller/exceptions/ExceptionHandler.class
+io/twg/payroll/entity/Employee.class
+io/twg/payroll/controller/exceptions/NotFoundException.class
+io/twg/payroll/config/InterceptorConfiguration.class
+io/twg/payroll/controller/HelloController.class
+io/twg/payroll/controller/EmployeeService.class
+io/twg/payroll/controller/EmployeeController.class
+io/twg/payroll/controller/exceptions/BadRequestException.class
+io/twg/payroll/PayrollApplication.class
