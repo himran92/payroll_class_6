@@ -1,0 +1,21 @@
+language: java
+jdk:
+  - openjdk10
+cache:
+  directories:
+    - "$HOME/.m2"
+sudo: enabled
+install:
+  - echo "Nothing to install, but avoid default 'mvn install' command"
+git:
+  depth: false
+before_script:
+  - mvn versions:set -DnewVersion=${TRAVIS_BUILD_NUMBER}
+script:
+  - mvn clean test package
+notifications:
+  email:
+    recipients:
+      - himran@twg.io
+    on_success: always
+    on_failure: always
