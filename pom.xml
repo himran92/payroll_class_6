@@ -49,9 +49,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<finalName>payroll_6</finalName>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
