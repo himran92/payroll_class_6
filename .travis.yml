@@ -1,21 +1,30 @@
 language: java
 jdk:
-  - openjdk10
+- openjdk10
 cache:
   directories:
-    - "$HOME/.m2"
+  - "$HOME/.m2"
 sudo: enabled
 install:
-  - echo "Nothing to install, but avoid default 'mvn install' command"
+- echo "Nothing to install, but avoid default 'mvn install' command"
 git:
   depth: false
 before_script:
-  - mvn versions:set -DnewVersion=${TRAVIS_BUILD_NUMBER}
+- mvn versions:set -DnewVersion=${TRAVIS_BUILD_NUMBER}
 script:
-  - mvn clean test package
+- mvn clean test package
 notifications:
   email:
     recipients:
-      - himran@twg.io
+    - himran@twg.io
     on_success: always
     on_failure: always
+
+addons:
+  ssh_known_hosts: ec2-user@ec2-3-20-204-183.us-east-2.compute.amazonaws.com
+
+before_deploy:
+  - openssl aes-256-cbc -K $encrypted_8d96415360c6_key -iv $encrypted_8d96415360c6_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 /tmp/deploy_rsa
+  - ssh-add /tmp/deploy_rsa
