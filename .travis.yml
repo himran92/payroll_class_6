@@ -28,3 +28,10 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 /tmp/deploy_rsa
   - ssh-add /tmp/deploy_rsa
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: scp -i deploy_rsa /home/travis/build/himran92/payroll_class_6/target/payroll-${TRAVIS_BUILD_NUMBER}.jar ec2-user@ec2-3-20-204-183.us-east-2.compute.amazonaws.com:~/
+    on:
+      branch: master
