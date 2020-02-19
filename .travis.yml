@@ -17,6 +17,10 @@ notifications:
     - himran@twg.io
     on_success: always
     on_failure: always
+before_install:
+- openssl aes-256-cbc -K $encrypted_8d96415360c6_key -iv $encrypted_8d96415360c6_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+
 
 addons:
   ssh_known_hosts: ec2-user@ec2-3-20-204-183.us-east-2.compute.amazonaws.com
