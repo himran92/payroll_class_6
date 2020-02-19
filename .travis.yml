@@ -9,8 +9,6 @@ install:
 - echo "Nothing to install, but avoid default 'mvn install' command"
 git:
   depth: false
-before_script:
-- mvn versions:set -DnewVersion=${TRAVIS_BUILD_NUMBER}
 script:
 - mvn clean test package
 notifications:
